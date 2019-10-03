@@ -14,8 +14,13 @@ int main(){
     if(game_nb_moves_cur(g) > 12 ){
         printf("looser");
         game_delete(g);
+    } else if (game_is_over(g)){
+        printf("winner");
     } else {
-        //game play one et game is over
+        char key = getchar();
+        if (key > 0 && key < 4) {
+            game_play_one_move(key);
+        }
     }
     return EXIT_SUCCESS;
 }
